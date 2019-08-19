@@ -37,7 +37,7 @@ public class MVCModelo {
 	}
 	
 	/**
-	 * Servicio de consulta de numero de elementos presentes en el modelo
+	 * Me falta añadir los datos a la lista
 	 * 
 	 * @return numero de elementos presentes en el modelo
 	 */
