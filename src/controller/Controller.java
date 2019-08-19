@@ -37,8 +37,8 @@ public class Controller {
 			int option = lector.nextInt();
 			switch (option) {
 			case 1:
-				System.out.println("--------- \nMostrar el total de viajes del primer semestre del año \nDar capacidad inicial del arreglo: ");
-				System.out.println("Numero actual de elementos " + modelo.darTamano() + "\n---------");
+				System.out.println("--------- \nMostrar el total de viajes del primer semestre del año");
+				System.out.println("Total de viajes del primer semestre del año " + modelo.darTotalViajesSemestre());
 				break;
 
 			case 2:
@@ -47,9 +47,7 @@ public class Controller {
 				datos = dato.split(",");
 				mes = Integer.parseInt(datos[0]);
 				sourceID = datos[1];
-				modelo.agregar(dato);
-				System.out.println("Dato agregado");
-				System.out.println("Numero actual de elementos " + modelo.darTamano() + "\n---------");
+				System.out.println("Viajes reportados en el mes " + mes + " desde la zona de origen con ID " + sourceID + ": " + modelo.consultarViajesMesYZonaDeOrigen(mes, sourceID));
 				break;
 
 			case 3:
@@ -58,7 +56,9 @@ public class Controller {
 				datos = dato.split(",");
 				mes = Integer.parseInt(datos[0]);
 				sourceID = datos[1];
-				System.out.println("Numero actual de elementos " + modelo.darTamano() + "\n---------");
+				System.out.println("Total de viajes reportados en el semestre " + modelo.darTotalViajesSemestre() + "\n---------");
+				System.out.println("Total de viajes reportados en el mes de consulta " + modelo.consultarViajesMes(mes).size() + "\nPorcentaje con respecto al total de viajes del semestre: " + modelo.porcentajeViajesMes(mes) + "\n---------");
+				System.out.println("Total de viajes reportados en el mes de consulta saliendo desde la zona de origen de consulta " + modelo.consultarViajesMesYZonaDeOrigen(mes, sourceID).size() + "\nPorcentaje con respecto al total de viajes del mes de consulta: " + modelo.porcentajeViajesMesYZonaDeOrigen(mes, sourceID) + "\n---------");
 				break;
 
 			case 4:

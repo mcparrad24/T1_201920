@@ -69,7 +69,7 @@ public class MVCModelo {
 	 * 
 	 * @param dato
 	 */
-	public int darTotalViajesSemestre {
+	public int darTotalViajesSemestre() {
 		
 	}
 	
@@ -84,7 +84,7 @@ public class MVCModelo {
 		
 	}
 	
-	public double porcentajeViajesMesYZonaDeOrigen (int mes) {
+	public double porcentajeViajesMesYZonaDeOrigen (int mes, String sourceID) {
 		
 	}
 
