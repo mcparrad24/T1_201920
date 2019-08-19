@@ -3,6 +3,7 @@ package model.logic;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.opencsv.CSVReader;
 
@@ -62,37 +63,29 @@ public class MVCModelo {
 
 		}
 	}
-	public int darTamano() {
-		return datos.darTamano();
-	}
-
+	
 	/**
 	 * Requerimiento de agregar dato
 	 * 
 	 * @param dato
 	 */
-	public void agregar(String dato) {
-		datos.agregar(dato);
+	public int darTotalViajesSemestre {
+		
 	}
-
-	/**
-	 * Requerimiento buscar dato
-	 * 
-	 * @param dato Dato a buscar
-	 * @return dato encontrado
-	 */
-	public String buscar(String dato) {
-		return datos.buscar(dato);
+	
+	public ArrayList<String> consultarViajesMesYZonaDeOrigen(int mes, String sourceID) {
 	}
-
-	/**
-	 * Requerimiento eliminar dato
-	 * 
-	 * @param dato Dato a eliminar
-	 * @return dato eliminado
-	 */
-	public String eliminar(String dato) {
-		return datos.eliminar(dato);
+	
+	public ArrayList<String> consultarViajesMes(int mes) {
+		
+	}
+	
+	public double porcentajeViajesMes(int mes) {
+		
+	}
+	
+	public double porcentajeViajesMesYZonaDeOrigen (int mes) {
+		
 	}
 
 }
