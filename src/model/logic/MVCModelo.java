@@ -24,7 +24,7 @@ public class MVCModelo {
 	 * Constructor del modelo del mundo con capacidad predefinida
 	 */
 	public MVCModelo() {
-		datos = new ArregloDinamico(7);
+		datos = new ArregloDinamico(3148608);
 	}
 
 	/**
@@ -41,14 +41,16 @@ public class MVCModelo {
 	 * 
 	 * @return numero de elementos presentes en el modelo
 	 */
-	public void CSVLector() {
+	private int CSVLector() {
 		CSVReader reader = null;
+		int total = 0;
 		try {
 			
-			reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-2-All-MonthlyAggregate.csv"));
+			reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-1-All-MonthlyAggregate.csv"));
 			for(String[] nextLine : reader) {
-		       System.out.println("col1: " + nextLine[0] + ", col2: "+ nextLine[1]);
-		    }
+		       System.out.println("col1: " + nextLine[0] + ", col2: "+ nextLine[1] + ", col3: "+ nextLine[2] + ", col4: "+ nextLine[3] + ", col5: "+ nextLine[4] + ", col6: "+ nextLine[5] + ", col7: "+ nextLine[6]);
+			total++;
+			}
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -62,6 +64,30 @@ public class MVCModelo {
 			}
 
 		}
+		
+		reader = null;
+		try {
+			
+			reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-2-All-MonthlyAggregate.csv"));
+			for(String[] nextLine : reader) {
+		       System.out.println("col1: " + nextLine[0] + ", col2: "+ nextLine[1] + ", col3: "+ nextLine[2] + ", col4: "+ nextLine[3] + ", col5: "+ nextLine[4] + ", col6: "+ nextLine[5] + ", col7: "+ nextLine[6]);
+			total++;
+			}
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} finally{
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
+		
+		return total;
 	}
 	
 	/**
@@ -70,7 +96,8 @@ public class MVCModelo {
 	 * @param dato
 	 */
 	public int darTotalViajesSemestre() {
-		
+		int totalviajes = this.CSVLector();
+		return totalviajes;
 	}
 	
 	public ArrayList<String> consultarViajesMesYZonaDeOrigen(int mes, String sourceID) {
