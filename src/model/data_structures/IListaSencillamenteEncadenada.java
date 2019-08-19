@@ -1,25 +1,12 @@
 package model.data_structures;
 
-public interface IArregloDinamico {
-
-	/**
-	 * Retornar el numero de elementos maximo en el arreglo
-	 * @return
-	 */
-	int darCapacidad( );
+public interface IListaSencillamenteEncadenada<T> {
 
 	/**
 	 * Retornar el numero de elementos presentes en el arreglo
 	 * @return
 	 */
 	int darTamano( );
-	
-	/**
-	 * Retornar el elemento en la posicion i
-	 * @param i posicion de consulta
-	 * @return elemento de consulta. null si no hay elemento en posicion.
-	 */
-	String darElemento( int i );
 
 	/**
 	 * Agregar un dato de forma compacta (en la primera casilla disponible) 
@@ -27,13 +14,6 @@ public interface IArregloDinamico {
 	 * @param dato nuevo elemento
 	 */
 	public void agregar( String dato );
-		
-	/**
-	 * Buscar un dato en el arreglo.
-	 * @param dato Objeto de busqueda en el arreglo
-	 * @return elemento encontrado en el arreglo (si existe). null si no se encontro el dato.
-	 */
-	String buscar(String dato);
 	
 	/**
 	 * Eliminar un dato del arreglo.
@@ -42,5 +22,7 @@ public interface IArregloDinamico {
 	 * @return dato eliminado
 	 */
 	String eliminar( String dato );
+	
+	String modificar( String dato, int posicion);
 
 }
