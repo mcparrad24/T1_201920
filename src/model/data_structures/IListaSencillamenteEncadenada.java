@@ -13,7 +13,7 @@ public interface IListaSencillamenteEncadenada<T> {
 	 * Caso Especial: Si el arreglo esta lleno debe aumentarse su capacidad, agregar el nuevo dato y deben quedar multiples casillas disponibles para futuros nuevos datos.
 	 * @param dato nuevo elemento
 	 */
-	public void agregar( String dato );
+	public void agregar( T dato );
 	
 	/**
 	 * Eliminar un dato del arreglo.
@@ -21,8 +21,6 @@ public interface IListaSencillamenteEncadenada<T> {
 	 * @param dato Objeto de eliminacion en el arreglo
 	 * @return dato eliminado
 	 */
-	String eliminar( String dato );
-	
-	String modificar( String dato, int posicion);
+	void eliminar( T dato );
 
 }

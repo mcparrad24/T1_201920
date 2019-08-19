@@ -1,7 +1,5 @@
 package model.data_structures;
 
-import sun.font.CreatedFontTracker;
-
 /**
  * 2019-01-23
  * Estructura de Datos Arreglo Dinamico de Strings.
@@ -49,32 +47,29 @@ public class ListaSencillamenteEncadenada<T> implements IListaSencillamenteEncad
 			return tamaño;
 		}
 
-		public String darElemento(int i) {
-			// TODO implementar
-			return null;
+		public void eliminar(T viajeUber) {
+			Node nodoActual = first;
+			boolean eliminado = false;
+			if (first.dato == viajeUber) {
+				first = first.next;
+			}
+			else {
+				while (first.next != null && !eliminado) {
+					if (nodoActual.next.dato == viajeUber) {
+						if (nodoActual.next == last) {
+							last = nodoActual;
+						}
+						nodoActual.next = nodoActual.next.next;
+						eliminado = true;
+					}
+					else {
+						nodoActual = nodoActual.next;
+					}
+				}
+			}
 		}
-
-		public String buscar(String dato) {
-			// TODO implementar
-			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
-			return null;
-		}
-
-		public String eliminar(String dato) {
-			// TODO implementar
-			// Recomendacion: Usar el criterio de comparacion natural (metodo compareTo()) definido en Strings.
-			return null;
-		}
-
-		@Override
-		public String modificar(String dato, int posicion) {
-			// TODO Auto-generated method stub
-			return null;
-		}
-		
 		private class Node{
 			T dato;
 			Node next;
 		}
-
 }
