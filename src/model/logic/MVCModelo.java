@@ -86,12 +86,12 @@ public class MVCModelo<T> {
 		return totalviajes;
 	}
 	
-	public ArrayList<String> consultarViajesMesYZonaDeOrigen(String mes, String sourceID) {
-		ArrayList<String> retu = new ArrayList<>();
+	public ArrayList<String[]> consultarViajesMesYZonaDeOrigen(String mes, String sourceID) {
+		ArrayList<String[]> retu = new ArrayList<>();
 		ArrayList<String[]> rec = datos.leer();
 		for(String[] recs : rec) {
 			if(mes.equals(recs[2]) && sourceID.equals(recs[0])) {
-				retu.add(recs.toString());
+				retu.add(recs);
 			}
 		}
 		return retu;

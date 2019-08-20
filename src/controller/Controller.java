@@ -24,7 +24,7 @@ public class Controller {
 	}
 
 	public void run() {
-		ArrayList<String> arr = new ArrayList<>();
+		ArrayList<String[]> arr = new ArrayList<>();
 		Scanner lector = new Scanner(System.in);
 		boolean fin = false;
 		String dato = "";
@@ -47,12 +47,15 @@ public class Controller {
 				datos = dato.split(",");
 				mes = datos[0];
 				sourceID = datos[1];
-				arr = modelo.consultarViajesMesYZonaDeOrigen(mes, sourceID);
-				System.out.print("Viajes reportados en el mes " + mes + " desde la zona de origen con ID " + sourceID + ": ");
-				for(int i = 0; i<arr.size(); i++) {
-					System.out.println(arr.get(i).toString());
-				}
-				
+				if(modelo.consultarViajesMesYZonaDeOrigen(mes, sourceID).size() == 0){
+					System.out.println("No hay viajes reportados en el mes " + mes + " desde la zona de origen con ID " + sourceID + ".");
+				} else {
+					arr = modelo.consultarViajesMesYZonaDeOrigen(mes, sourceID);
+					System.out.print("Viajes reportados en el mes " + mes + " desde la zona de origen con ID " + sourceID + ": ");
+					for(String[] arre : arr) {
+						System.out.println(Arrays.toString(arre));
+					}
+				}		
 				break;
 
 			case 3:
