@@ -97,16 +97,29 @@ public class MVCModelo<T> {
 		return retu;
 	}
 	
-	public ArrayList<String> consultarViajesMes(String mes) {
-		
+	public ArrayList<String[]> consultarViajesMes(String mes) {
+		ArrayList<String[]> retorno = new ArrayList<>();
+		ArrayList<String[]> rec = datos.leer();
+		for(String[] recs : rec) {
+			if(mes.equals(recs[2])) {
+				retorno.add(recs);
+			}
+		}
+		return retorno;
 	}
 	
 	public double porcentajeViajesMes(String mes) {
-		
+		int numTotal = datos.darTamano();
+		int viajesMes = consultarViajesMes(mes).size();
+		double porcentajeTotal = (viajesMes/numTotal)*100;
+		return porcentajeTotal;
 	}
 	
 	public double porcentajeViajesMesYZonaDeOrigen (String mes, String sourceID) {
-		
+		int numTotal = consultarViajesMes(mes).size();
+		int viajesMesZona = consultarViajesMesYZonaDeOrigen(mes, sourceID).size();
+		double porcentajeTotal = (viajesMesZona/numTotal)*100;
+		return porcentajeTotal;
 	}
 
 }
