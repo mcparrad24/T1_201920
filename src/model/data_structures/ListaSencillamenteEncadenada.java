@@ -1,4 +1,5 @@
 package model.data_structures;
+import java.util.ArrayList;
 
 /**
  * 2019-01-23
@@ -13,42 +14,48 @@ public class ListaSencillamenteEncadenada<T> implements IListaSencillamenteEncad
 		 * Numero de elementos presentes en el arreglo (de forma compacta desde la posicion 0)
 		 */
         
-        private Node first;
+        private Node<T> first;
         
-        private Node last;
+        private Node<T> last;
         
-        private Node oldLast;
+        private Node<T> oldLast;
+        
+        private int dat = 0;
 
 		public void agregar( T viajeUber )
         {
 			if (first == null) {
-				first = new Node();
+				first = new Node<T>();
 				first.dato = viajeUber;
+				System.out.println("Dato "+dat+": "+first.dato);
+				dat++;
 			}
 			else {
-				Node nodoActual = first;
-				while (first.next != null) {
+				Node<T> nodoActual = first;
+				while (nodoActual.next != null) {
 					nodoActual = nodoActual.next;
 				}
 				oldLast = nodoActual;
-				last = new Node();
+				last = new Node<T>();
 				last.dato = viajeUber;
+				System.out.println("Dato "+dat+": "+last.dato);
 				oldLast.next = last;
+				dat++;
 			}
        }
 
 		public int darTamano() {
-			int tamaño = 0;
-			Node nodoActual = first;
+			int tamano = 0;
+			Node<T> nodoActual = first;
 			while (first != null){
 				nodoActual = nodoActual.next;
-				tamaño++;
+				tamano++;
 			}
-			return tamaño;
+			return tamano;
 		}
 
 		public void eliminar(T viajeUber) {
-			Node nodoActual = first;
+			Node<T> nodoActual = first;
 			boolean eliminado = false;
 			if (first.dato == viajeUber) {
 				first = first.next;
@@ -68,8 +75,19 @@ public class ListaSencillamenteEncadenada<T> implements IListaSencillamenteEncad
 				}
 			}
 		}
-		private class Node{
+		
+		public ArrayList<T> leer() {
+			ArrayList<T> arc = new ArrayList<>();
+			Node<T> nodoActual = first; 
+	        while (nodoActual != null) { 
+	            arc.add(nodoActual.dato);
+	            nodoActual = nodoActual.next; 
+	        }
+	        return arc;
+		}
+		
+		private class Node<T>{
 			T dato;
-			Node next;
+			Node<T> next;
 		}
 }

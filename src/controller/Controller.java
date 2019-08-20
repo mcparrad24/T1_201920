@@ -1,6 +1,6 @@
 package controller;
 
-import java.util.Scanner;
+import java.util.*;
 
 import model.logic.MVCModelo;
 import view.MVCView;
@@ -24,12 +24,12 @@ public class Controller {
 	}
 
 	public void run() {
+		ArrayList<String> arr = new ArrayList<>();
 		Scanner lector = new Scanner(System.in);
 		boolean fin = false;
 		String dato = "";
 		String []datos;
-		int mes = 0;
-		String sourceID = "";
+		String sourceID = "", mes = "";
 
 		while (!fin) {
 			view.printMenu();
@@ -45,16 +45,21 @@ public class Controller {
 				System.out.println("--------- \nConsultar viajes reportados en un mes dado desde una zona de origen \nDar número de mes del primer semestre y el identificador númerico de la zona de origen \nDar el número del mes seguido por una coma y el identificador númerico de la zona de origen(e.g., 1, 260): ");
 				dato = lector.next();
 				datos = dato.split(",");
-				mes = Integer.parseInt(datos[0]);
+				mes = datos[0];
 				sourceID = datos[1];
-				System.out.println("Viajes reportados en el mes " + mes + " desde la zona de origen con ID " + sourceID + ": " + modelo.consultarViajesMesYZonaDeOrigen(mes, sourceID));
+				arr = modelo.consultarViajesMesYZonaDeOrigen(mes, sourceID);
+				System.out.print("Viajes reportados en el mes " + mes + " desde la zona de origen con ID " + sourceID + ": ");
+				for(int i = 0; i<arr.size(); i++) {
+					System.out.println(arr.get(i).toString());
+				}
+				
 				break;
 
 			case 3:
 				System.out.println("--------- \nReportar estadísticas \nDar número de mes del primer semestre y el identificador númerico de la zona de origen \nDar el número del mes seguido por una coma y el identificador númerico de la zona de origen (e.g., 1, 260): ");
 				dato = lector.next();
 				datos = dato.split(",");
-				mes = Integer.parseInt(datos[0]);
+				mes = datos[0];
 				sourceID = datos[1];
 				System.out.println("Total de viajes reportados en el semestre " + modelo.darTotalViajesSemestre() + "\n---------");
 				System.out.println("Total de viajes reportados en el mes de consulta " + modelo.consultarViajesMes(mes).size() + "\nPorcentaje con respecto al total de viajes del semestre: " + modelo.porcentajeViajesMes(mes) + "\n---------");

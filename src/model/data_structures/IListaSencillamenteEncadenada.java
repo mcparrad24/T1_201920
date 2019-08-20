@@ -11,9 +11,9 @@ public interface IListaSencillamenteEncadenada<T> {
 	/**
 	 * Agregar un dato de forma compacta (en la primera casilla disponible) 
 	 * Caso Especial: Si el arreglo esta lleno debe aumentarse su capacidad, agregar el nuevo dato y deben quedar multiples casillas disponibles para futuros nuevos datos.
-	 * @param dato nuevo elemento
+	 * @param nextLine nuevo elemento
 	 */
-	public void agregar( T dato );
+	public void agregar(T dato );
 	
 	/**
 	 * Eliminar un dato del arreglo.
