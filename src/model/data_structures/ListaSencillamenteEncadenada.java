@@ -27,8 +27,6 @@ public class ListaSencillamenteEncadenada<T> implements IListaSencillamenteEncad
 			if (first == null) {
 				first = new Node<T>();
 				first.dato = viajeUber;
-				System.out.println("Dato "+dat+": "+first.dato);
-				dat++;
 			}
 			else {
 				Node<T> nodoActual = first;
@@ -38,9 +36,7 @@ public class ListaSencillamenteEncadenada<T> implements IListaSencillamenteEncad
 				oldLast = nodoActual;
 				last = new Node<T>();
 				last.dato = viajeUber;
-				System.out.println("Dato "+dat+": "+last.dato);
 				oldLast.next = last;
-				dat++;
 			}
        }
 

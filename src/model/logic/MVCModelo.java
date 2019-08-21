@@ -29,7 +29,7 @@ public class MVCModelo<T> {
 		int total = 0;
 		try {
 			
-			reader = new CSVReader(new FileReader("./data/Libro1.csv"));
+			reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-1-All-MonthlyAggregate.csv"));
 			for(String[] nextLine : reader) {
 				datos.agregar(nextLine);
 				//System.out.println("col1: " + nextLine[0] + ", col2: "+ nextLine[1] + ", col3: "+ nextLine[2] + ", col4: "+ nextLine[3] + ", col5: "+ nextLine[4] + ", col6: "+ nextLine[5] + ", col7: "+ nextLine[6]);
@@ -48,7 +48,7 @@ public class MVCModelo<T> {
 			}
 
 		}
-		/**
+		
 		reader = null;
 		try {
 			
@@ -70,7 +70,7 @@ public class MVCModelo<T> {
 				}
 			}
 
-		}**/
+		}
 		
 		return total;
 	}
