@@ -110,14 +110,14 @@ public class MVCModelo<T> {
 	public double porcentajeViajesMes(String mes) {
 		int numTotal = datos.darTamano();
 		int viajesMes = consultarViajesMes(mes).size();
-		double porcentajeTotal = (viajesMes/numTotal)*100;
+		double porcentajeTotal = 100 * viajesMes / numTotal;
 		return porcentajeTotal;
 	}
 	
 	public double porcentajeViajesMesYZonaDeOrigen (String mes, String sourceID) {
 		int numTotal = consultarViajesMes(mes).size();
 		int viajesMesZona = consultarViajesMesYZonaDeOrigen(mes, sourceID).size();
-		double porcentajeTotal = (viajesMesZona/numTotal)*100;
+		double porcentajeTotal = 100 * viajesMesZona/numTotal;
 		return porcentajeTotal;
 	}
 

@@ -27,6 +27,7 @@ public class Controller {
 		ArrayList<String[]> arr = new ArrayList<>();
 		Scanner lector = new Scanner(System.in);
 		boolean fin = false;
+		int nume = 0;
 		String dato = "";
 		String []datos;
 		String sourceID = "", mes = "";
@@ -38,7 +39,8 @@ public class Controller {
 			switch (option) {
 			case 1:
 				System.out.println("--------- \nMostrar el total de viajes del primer semestre del año");
-				System.out.println("Total de viajes del primer semestre del año " + modelo.darTotalViajesSemestre());
+				nume = modelo.darTotalViajesSemestre();
+				System.out.println("Total de viajes del primer semestre del año " + nume);
 				break;
 
 			case 2:
@@ -64,9 +66,9 @@ public class Controller {
 				datos = dato.split(",");
 				mes = datos[0];
 				sourceID = datos[1];
-				System.out.println("Total de viajes reportados en el semestre " + modelo.darTotalViajesSemestre() + "\n---------");
-				System.out.println("Total de viajes reportados en el mes de consulta " + modelo.consultarViajesMes(mes).size() + "\nPorcentaje con respecto al total de viajes del semestre: " + modelo.porcentajeViajesMes(mes) + "\n---------");
-				System.out.println("Total de viajes reportados en el mes de consulta saliendo desde la zona de origen de consulta " + modelo.consultarViajesMesYZonaDeOrigen(mes, sourceID).size() + "\nPorcentaje con respecto al total de viajes del mes de consulta: " + modelo.porcentajeViajesMesYZonaDeOrigen(mes, sourceID) + "\n---------");
+				System.out.println("Total de viajes reportados en el semestre " + nume + "\n---------");
+				System.out.println("Total de viajes reportados en el mes de consulta " + modelo.consultarViajesMes(mes).size() + "\nPorcentaje con respecto al total de viajes del semestre: " + modelo.porcentajeViajesMes(mes) + "%\n---------");
+				System.out.println("Total de viajes reportados en el mes de consulta saliendo desde la zona de origen de consulta " + modelo.consultarViajesMesYZonaDeOrigen(mes, sourceID).size() + "\nPorcentaje con respecto al total de viajes del mes de consulta: " + modelo.porcentajeViajesMesYZonaDeOrigen(mes, sourceID) + "%\n---------");
 				break;
 
 			case 4:
