@@ -47,7 +47,7 @@ public class ListaSencillamenteEncadenada<T> implements IListaSencillamenteEncad
 		public int darTamano() {
 			int tamano = 0;
 			Node<T> nodoActual = first;
-			while (first != null){
+			while (nodoActual != null){
 				nodoActual = nodoActual.next;
 				tamano++;
 			}

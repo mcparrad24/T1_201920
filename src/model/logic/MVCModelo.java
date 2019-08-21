@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import com.opencsv.CSVReader;
 
 import model.data_structures.ListaSencillamenteEncadenada;
-import model.data_structures.IListaSencillamenteEncadenada;
 
 /**
  * Definicion del modelo del mundo
