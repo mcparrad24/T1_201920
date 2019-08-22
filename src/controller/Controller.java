@@ -38,9 +38,9 @@ public class Controller {
 			int option = lector.nextInt();
 			switch (option) {
 			case 1:
-				System.out.println("--------- \nMostrar el total de viajes del primer semestre del a�o");
+				System.out.println("--------- \nMostrar el total de viajes del primer semestre del año");
 				nume = modelo.darTotalViajesSemestre();
-				System.out.println("Total de viajes del primer semestre del a�o " + nume);
+				System.out.println("Total de viajes del primer semestre del año " + nume);
 				break;
 
 			case 2:
@@ -48,7 +48,7 @@ public class Controller {
 					nume = modelo.darTotalViajesSemestre();
 				}
 				System.out.println(
-						"--------- \nConsultar viajes reportados en un mes dado desde una zona de origen \nDar n�mero de mes del primer semestre y el identificador num�rico de la zona de origen \nDar el n�mero del mes seguido por una coma y el identificador num�rico de la zona de origen(e.g., 1,260): ");
+						"--------- \nConsultar viajes reportados en un mes dado desde una zona de origen \nDar número de mes del primer semestre y el identificador numérico de la zona de origen \nDar el número del mes seguido por una coma y el identificador numérico de la zona de origen(e.g., 1,260): ");
 				dato = lector.next();
 				datos = dato.split(",");
 				mes = datos[0];
@@ -71,8 +71,8 @@ public class Controller {
 					nume = modelo.darTotalViajesSemestre();
 				}
 				System.out.println(
-						"--------- \nReportar estad�ticas "
-						+ "\nDar el n�mero del mes seguido por una coma y el identificador num�rico de la zona de origen (e.g., 1,260): ");
+						"--------- \nReportar estadísticas "
+						+ "\nDar el número del mes seguido por una coma y el identificador numérico de la zona de origen (e.g., 1,260): ");
 				dato = lector.next();
 				datos = dato.split(",");
 				mes = datos[0];
