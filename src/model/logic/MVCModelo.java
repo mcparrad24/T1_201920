@@ -27,8 +27,8 @@ public class MVCModelo<T> {
 	public int CSVLector() {
 		CSVReader reader = null;
 		int total = 0;
+		
 		try {
-			
 			reader = new CSVReader(new FileReader("./data/bogota-cadastral-2018-1-All-MonthlyAggregate.csv"));
 			for(String[] nextLine : reader) {
 				datos.agregar(nextLine);
@@ -67,9 +67,7 @@ public class MVCModelo<T> {
 					e.printStackTrace();
 				}
 			}
-
 		}
-		
 		return total;
 	}
 	
